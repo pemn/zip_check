@@ -26,5 +26,8 @@ Run the following command or create a shortcut:
 ## 💎 License
 Apache 2.0
 ## 📓 Notes
+ - Some zip files for testing are included in `test` folder
+ - A .html file with this README compiled is included for convenience
+ - Only zip files are supported, other compressed formats could be easily included. Fork away!
 ## 📚 Examples
 ## 🧩 Compatibility
