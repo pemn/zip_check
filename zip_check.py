@@ -13,7 +13,7 @@ class TreeWalk(QThread):
   _fp = '.'
   _tl = threading.Lock()
   _ps = dict()
-  _pp = 'treewalk.pyp'
+  _pp = os.path.splitext(os.path.realpath(sys.argv[0]))[0] + '.pyp'
   _tf = False
 
   def run(self):
@@ -83,7 +83,7 @@ class TreeWalk(QThread):
 
 class CentralWidget(QWidget):
   _s_start = '⏩ start'
-  _s_stop = '⏹️ stop'
+  _s_stop = '⏸️ pause'
   _folder = None
   _walker = None
   def __init__(self, *args, **kwargs):
@@ -148,6 +148,7 @@ class CentralWidget(QWidget):
 
   def worker_finished(self):
     self._pb_toggle.setText(self._s_start)
+    self._pb_resume.setEnabled(True)
     r = self._walker.result()
     self._te_result.append(time.strftime('%H:%M:%S finished'))
     self._te_result.append('%d files PASS' % len([None for v in r.values() if v is None]))
